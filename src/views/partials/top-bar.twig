@@ -1,0 +1,112 @@
+{# Top notification bar component #}
+<div class="top-bar" id="top-notification-bar">
+    <div class="top-bar-content">
+        <span class="notification-text">
+            جميع المنتجات بخصوصيات حصرية - شحن مجاني للطلبات أكثر من 200 ريال
+        </span>
+        <button class="close-notification" onclick="closeTopBar()" aria-label="إغلاق الإشعار">
+            ×
+        </button>
+    </div>
+</div>
+
+<style>
+.top-bar {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 14px;
+    position: relative;
+    animation: slideDown 0.5s ease-out;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.notification-text {
+    flex: 1;
+    text-align: center;
+}
+
+.close-notification {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.close-notification:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.top-bar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        font-size: 12px;
+        padding: 6px 0;
+    }
+    
+    .notification-text {
+        padding-right: 2rem;
+    }
+}
+</style>
+
+<script>
+function closeTopBar() {
+    const topBar = document.getElementById('top-notification-bar');
+    topBar.classList.add('hidden');
+    
+    // Store preference in localStorage
+    localStorage.setItem('topBarClosed', 'true');
+    
+    // Remove from DOM after animation
+    setTimeout(() => {
+        topBar.style.display = 'none';
+    }, 300);
+}
+
+// Check if user previously closed the notification
+document.addEventListener('DOMContentLoaded', function() {
+    if (localStorage.getItem('topBarClosed') === 'true') {
+        const topBar = document.getElementById('top-notification-bar');
+        topBar.style.display = 'none';
+    }
+});
+</script>
+

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تسوق أفضل منتجات الفيب والشيشة الإلكترونية في السعودية مع شحن مجاني وضمان الجودة">
+    <meta name="keywords" content="فيب, شيشة إلكترونية, سحبات, نكهات, السعودية">
+    <meta name="author" content="Vaperelax">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Vaperelax - أفضل منتجات الفيب في السعودية">
+    <meta property="og:description" content="تسوق أفضل منتجات الفيب والشيشة الإلكترونية في السعودية">
+    <meta property="og:image" content="https://vaperelax.com/og-image.jpg">
+    <meta property="og:url" content="https://vaperelax.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vaperelax - أفضل منتجات الفيب">
+    <meta name="twitter:description" content="تسوق أفضل منتجات الفيب في السعودية">
+    <meta name="twitter:image" content="https://vaperelax.com/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ff6b6b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Vaperelax">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="../src/assets/css/main.css" as="style">
+    <link rel="preload" href="../src/assets/js/main.js" as="script">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <title>Vaperelax - أفضل منتجات الفيب والشيشة الإلكترونية في السعودية</title>
+    
+    <!-- Critical CSS (inline for performance) -->
+    <style>
+        /* Critical above-the-fold styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header styles */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 0.5rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .header-main {
+            padding: 1rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: #ff6b6b;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            width: 250px;
+            font-size: 0.9rem;
+        }
+        
+        .cart-icon {
+            position: relative;
+            color: #333;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        /* Hero section */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background: #ff6b6b;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Loading states */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .search-input {
+                width: 200px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+    
+    <!-- Load main CSS -->
+    <link rel="stylesheet" href="../src/assets/css/main.css">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">تخطي إلى المحتوى الرئيسي</a>
+    
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            🚚 شحن مجاني للطلبات أكثر من 200 ريال | 📞 خدمة العملاء: 966501234567+
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <div class="header-content">
+                    <a href="/" class="logo">Vaperelax</a>
+                    
+                    <nav class="nav-main">
+                        <ul class="nav-menu">
+                            <li><a href="/">الرئيسية</a></li>
+                            <li><a href="/products">المنتجات</a></li>
+                            <li><a href="/categories">الفئات</a></li>
+                            <li><a href="/brands">العلامات التجارية</a></li>
+                            <li><a href="/offers">العروض</a></li>
+                            <li><a href="/contact">اتصل بنا</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="header-actions">
+                        <div class="search-container">
+                            <input type="search" class="search-input" placeholder="ابحث عن المنتجات...">
+                        </div>
+                        
+                        <a href="/cart" class="cart-icon">
+                            🛒
+                            <span class="cart-count">0</span>
+                        </a>
+                        
+                        <a href="/account" class="account-link">👤</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">أفضل منتجات الفيب في السعودية</h1>
+                <p class="hero-subtitle">اكتشف مجموعتنا الواسعة من منتجات الفيب والشيشة الإلكترونية عالية الجودة</p>
+                <a href="/products" class="cta-button">تسوق الآن</a>
+            </div>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="categories-section" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">فئات المنتجات</h2>
+                    <p class="section-subtitle">اختر من مجموعة متنوعة من المنتجات</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card" data-animate>
+                        <a href="/category/disposable" class="category-link">
+                            <div class="category-image">
+                                <img src="https://via.placeholder.com/300x200/ff6b6b/ffffff?text=سحبات+استخدام+مرة+واحدة" 
+                                     alt="سحبات استخدام مرة واحدة" 
+                                     width="300" 
+                                     height="200"
+                                     loading="lazy">
+                                <div class="category-overlay">+50 منتج</div>
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-name">سحبات استخدام مرة واحدة</h3>
+                                <p class="category-description">سحبات جاهزة للاستخدام بنكهات متنوعة</p>
+                                <span class="category-cta">تسوق الآن</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="category-card" data-animate>
+                        <a href="/category/e-cigarettes" class="category-link">
+                            <div class="category-image">
+                                <img src="https://via.placeholder.com/300x200/4ecdc4/ffffff?text=شيشة+إلكترونية" 
+                                     alt="شيشة إلكترونية" 
+                                     width="300" 
+                                     height="200"
+                                     loading="lazy">
+                                <div class="category-overlay">+30 منتج</div>
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-name">شيشة إلكترونية</h3>
+                                <p class="category-description">أجهزة شيشة إلكترونية متطورة</p>
+                                <span class="category-cta">تسوق الآن</span>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="category-card" data-animate>
+                        <a href="/category/flavors" class="category-link">
+                            <div class="category-image">
+                                <img src="https://via.placeholder.com/300x200/ffd93d/333333?text=نكهات+فيب" 
+                                     alt="نكهات فيب" 
+                                     width="300" 
+                                     height="200"
+                                     loading="lazy">
+                                <div class="category-overlay">+100 نكهة</div>
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-name">نكهات فيب</h3>
+                                <p class="category-description">نكهات متنوعة وعالية الجودة</p>
+                                <span class="category-cta">تسوق الآن</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Products -->
+        <section class="products-section" style="padding: 4rem 0; background: #f8f9fa;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">المنتجات المميزة</h2>
+                    <p class="section-subtitle">أفضل المنتجات الأكثر مبيعاً</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Sample products -->
+                    <div class="product-card" data-animate>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/280x280/ff6b6b/ffffff?text=منتج+1" 
+                                 alt="منتج مميز 1" 
+                                 width="280" 
+                                 height="280"
+                                 loading="lazy">
+                            <div class="product-badge">جديد</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">سحبة إلكترونية مميزة</h3>
+                            <div class="product-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-count">(45)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">89 ر.س</span>
+                                <span class="original-price">120 ر.س</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-product-id="1">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" data-animate>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/280x280/4ecdc4/ffffff?text=منتج+2" 
+                                 alt="منتج مميز 2" 
+                                 width="280" 
+                                 height="280"
+                                 loading="lazy">
+                            <div class="product-badge sale">خصم 25%</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">جهاز فيب متطور</h3>
+                            <div class="product-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-count">(32)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">150 ر.س</span>
+                                <span class="original-price">200 ر.س</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-product-id="2">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" data-animate>
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/280x280/ffd93d/333333?text=منتج+3" 
+                                 alt="منتج مميز 3" 
+                                 width="280" 
+                                 height="280"
+                                 loading="lazy">
+                            <div class="product-badge">الأكثر مبيعاً</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">نكهة فواكه استوائية</h3>
+                            <div class="product-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span class="rating-count">(67)</span>
+                            </div>
+                            <div class="product-price">
+                                <span class="current-price">45 ر.س</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-product-id="3">
+                                إضافة للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features-section" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">لماذا تختار Vaperelax؟</h2>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card" data-animate>
+                        <div class="feature-icon">🚚</div>
+                        <h3 class="feature-title">شحن سريع ومجاني</h3>
+                        <p class="feature-description">شحن مجاني للطلبات أكثر من 200 ريال مع توصيل سريع في جميع أنحاء المملكة</p>
+                    </div>
+                    
+                    <div class="feature-card" data-animate>
+                        <div class="feature-icon">✅</div>
+                        <h3 class="feature-title">منتجات أصلية 100%</h3>
+                        <p class="feature-description">جميع منتجاتنا أصلية ومضمونة من الموردين المعتمدين</p>
+                    </div>
+                    
+                    <div class="feature-card" data-animate>
+                        <div class="feature-icon">🔒</div>
+                        <h3 class="feature-title">دفع آمن</h3>
+                        <p class="feature-description">طرق دفع متعددة وآمنة مع حماية كاملة لبياناتك</p>
+                    </div>
+                    
+                    <div class="feature-card" data-animate>
+                        <div class="feature-icon">📞</div>
+                        <h3 class="feature-title">خدمة عملاء 24/7</h3>
+                        <p class="feature-description">فريق خدمة العملاء متاح على مدار الساعة لمساعدتك</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" style="background: #2c3e50; color: white; padding: 3rem 0 1rem;">
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div class="footer-section">
+                    <h3 style="margin-bottom: 1rem;">Vaperelax</h3>
+                    <p style="margin-bottom: 1rem; opacity: 0.8;">متجرك الموثوق لأفضل منتجات الفيب في السعودية</p>
+                    <div class="social-links">
+                        <a href="#" style="color: white; margin-left: 1rem;">📘</a>
+                        <a href="#" style="color: white; margin-left: 1rem;">📷</a>
+                        <a href="#" style="color: white; margin-left: 1rem;">🐦</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 1rem;">روابط سريعة</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="/" style="color: #bdc3c7; text-decoration: none;">الرئيسية</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/products" style="color: #bdc3c7; text-decoration: none;">المنتجات</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/about" style="color: #bdc3c7; text-decoration: none;">من نحن</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/contact" style="color: #bdc3c7; text-decoration: none;">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 style="margin-bottom: 1rem;">خدمة العملاء</h4>
+                    <p style="margin-bottom: 0.5rem; color: #bdc3c7;">📞 +966 50 123 4567</p>
+                    <p style="margin-bottom: 0.5rem; color: #bdc3c7;">✉️ info@vaperelax.com</p>
+                    <p style="color: #bdc3c7;">🕒 السبت - الخميس: 9:00 ص - 11:00 م</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="border-top: 1px solid #34495e; padding-top: 1rem; text-align: center; color: #95a5a6;">
+                <p>&copy; 2024 Vaperelax. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ARIA Live Region for announcements -->
+    <div aria-live="polite" aria-atomic="true" class="sr-only" id="live-region"></div>
+    
+    <!-- Load JavaScript -->
+    <script src="../src/assets/js/main.js" defer></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('../sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+    </script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+        // Monitor Core Web Vitals
+        function sendToAnalytics(metric) {
+            console.log(metric.name, metric.value);
+            
+            // Send to Google Analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', metric.name, {
+                    event_category: 'Web Vitals',
+                    value: Math.round(metric.value),
+                    non_interaction: true
+                });
+            }
+        }
+        
+        // Load web-vitals library
+        import('https://unpkg.com/web-vitals@3/dist/web-vitals.js').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+            getCLS(sendToAnalytics);
+            getFID(sendToAnalytics);
+            getFCP(sendToAnalytics);
+            getLCP(sendToAnalytics);
+            getTTFB(sendToAnalytics);
+        }).catch(err => {
+            console.log('Web Vitals library failed to load:', err);
+        });
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "Vaperelax",
+        "description": "أفضل متجر للفيب والشيشة الإلكترونية في السعودية",
+        "url": "https://vaperelax.com",
+        "logo": "https://vaperelax.com/logo.png",
+        "image": "https://vaperelax.com/store-image.jpg",
+        "telephone": "+966501234567",
+        "email": "info@vaperelax.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "SA",
+            "addressRegion": "الرياض"
+        },
+        "openingHours": "Sa-Th 09:00-23:00",
+        "paymentAccepted": ["Cash", "Credit Card", "Mada", "Apple Pay", "STC Pay"],
+        "currenciesAccepted": "SAR"
+    }
+    </script>
+</body>
+</html>
+

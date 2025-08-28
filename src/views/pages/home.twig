@@ -1,0 +1,360 @@
+{% extends 'layouts/master.twig' %}
+
+{% block title %}{{ store.name }} - أفضل منتجات الفيب في السعودية{% endblock %}
+
+{% block description %}تسوق أفضل منتجات الفيب والشيشة الإلكترونية في السعودية. سحبات، نكهات، بودات وأكسسوارات بأفضل الأسعار مع شحن مجاني.{% endblock %}
+
+{% block keywords %}فيب, شيشة إلكترونية, سحبات, نكهات فيب, بودات, كويلات, السعودية{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    {% include 'partials/hero-section.twig' %}
+    
+    <!-- Featured Categories -->
+    <section class="featured-categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تسوق حسب الفئة</h2>
+                <p class="section-subtitle">اكتشف مجموعتنا المتنوعة من منتجات الفيب عالية الجودة</p>
+            </div>
+            
+            <div class="categories-grid">
+                {% for category in featured_categories %}
+                    <div class="category-card" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                        <a href="{{ category.url }}" class="category-link">
+                            <div class="category-image">
+                                <img 
+                                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f0f0f0' width='400' height='300'/%3E%3C/svg%3E"
+                                    data-src="{{ category.image.url | default('images/category-placeholder.jpg' | asset) }}"
+                                    alt="{{ category.name }}"
+                                    class="lazy"
+                                    width="400"
+                                    height="300"
+                                >
+                                <div class="category-overlay">
+                                    <span class="category-count">{{ category.products_count }} منتج</span>
+                                </div>
+                            </div>
+                            <div class="category-content">
+                                <h3 class="category-name">{{ category.name }}</h3>
+                                <p class="category-description">{{ category.description | slice(0, 80) }}...</p>
+                                <span class="category-cta">تسوق الآن</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Best Sellers -->
+    <section class="best-sellers" id="best-sellers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">الأكثر مبيعاً</h2>
+                <p class="section-subtitle">المنتجات المفضلة لدى عملائنا</p>
+                <a href="{{ url('best-sellers') }}" class="view-all-link">عرض الكل</a>
+            </div>
+            
+            <div class="products-grid">
+                {% for product in best_selling_products %}
+                    {% include 'partials/product-card.twig' with {
+                        product: product,
+                        show_quick_view: true,
+                        card_size: 'medium'
+                    } %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- New Arrivals -->
+    <section class="new-arrivals" id="new-arrivals">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">وصل حديثاً</h2>
+                <p class="section-subtitle">أحدث المنتجات في عالم الفيب</p>
+                <a href="{{ url('new-arrivals') }}" class="view-all-link">عرض الكل</a>
+            </div>
+            
+            <div class="products-slider" id="new-arrivals-slider">
+                <div class="slider-container">
+                    <div class="slider-track">
+                        {% for product in new_products %}
+                            <div class="slider-item">
+                                {% include 'partials/product-card.twig' with {
+                                    product: product,
+                                    show_quick_view: true,
+                                    card_size: 'medium'
+                                } %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <button class="slider-btn slider-btn--prev" onclick="slideProducts('prev')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                
+                <button class="slider-btn slider-btn--next" onclick="slideProducts('next')">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Brands Section -->
+    <section class="brands-section" id="brands">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">العلامات التجارية المميزة</h2>
+                <p class="section-subtitle">نتعامل مع أفضل العلامات التجارية العالمية</p>
+            </div>
+            
+            <div class="brands-grid">
+                {% for brand in featured_brands %}
+                    <div class="brand-card" data-aos="zoom-in" data-aos-delay="{{ loop.index0 * 50 }}">
+                        <a href="{{ brand.url }}" class="brand-link">
+                            <img 
+                                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Crect fill='%23f0f0f0' width='200' height='100'/%3E%3C/svg%3E"
+                                data-src="{{ brand.logo.url | default('images/brand-placeholder.jpg' | asset) }}"
+                                alt="{{ brand.name }}"
+                                class="brand-logo lazy"
+                                width="200"
+                                height="100"
+                            >
+                            <div class="brand-overlay">
+                                <span class="brand-name">{{ brand.name }}</span>
+                                <span class="brand-products">{{ brand.products_count }} منتج</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">شحن مجاني</h3>
+                    <p class="feature-description">شحن مجاني لجميع الطلبات أكثر من 200 ريال</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">ضمان الجودة</h3>
+                    <p class="feature-description">جميع منتجاتنا أصلية ومضمونة 100%</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9,22 9,12 15,12 15,22"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">دعم 24/7</h3>
+                    <p class="feature-description">فريق دعم متاح على مدار الساعة لمساعدتك</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">سهولة الإرجاع</h3>
+                    <p class="feature-description">إرجاع مجاني خلال 14 يوم من تاريخ الشراء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2 class="newsletter-title">اشترك في نشرتنا البريدية</h2>
+                    <p class="newsletter-subtitle">احصل على أحدث العروض والمنتجات الجديدة</p>
+                </div>
+                
+                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <div class="form-group">
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="أدخل بريدك الإلكتروني"
+                            class="newsletter-input"
+                            required
+                        >
+                        <button type="submit" class="newsletter-btn">
+                            اشتراك
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="newsletter-privacy">
+                        بالاشتراك، أنت توافق على 
+                        <a href="{{ url('privacy-policy') }}">سياسة الخصوصية</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Products slider functionality
+let currentSlide = 0;
+const slidesToShow = 4;
+
+function slideProducts(direction) {
+    const slider = document.querySelector('#new-arrivals-slider .slider-track');
+    const items = slider.querySelectorAll('.slider-item');
+    const totalSlides = items.length;
+    const maxSlide = Math.max(0, totalSlides - slidesToShow);
+    
+    if (direction === 'next') {
+        currentSlide = Math.min(currentSlide + 1, maxSlide);
+    } else {
+        currentSlide = Math.max(currentSlide - 1, 0);
+    }
+    
+    const translateX = -(currentSlide * (100 / slidesToShow));
+    slider.style.transform = `translateX(${translateX}%)`;
+    
+    // Update button states
+    updateSliderButtons();
+}
+
+function updateSliderButtons() {
+    const prevBtn = document.querySelector('.slider-btn--prev');
+    const nextBtn = document.querySelector('.slider-btn--next');
+    const items = document.querySelectorAll('#new-arrivals-slider .slider-item');
+    const maxSlide = Math.max(0, items.length - slidesToShow);
+    
+    prevBtn.disabled = currentSlide === 0;
+    nextBtn.disabled = currentSlide >= maxSlide;
+}
+
+// Newsletter subscription
+function subscribeNewsletter(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const email = form.email.value;
+    const button = form.querySelector('.newsletter-btn');
+    
+    // Add loading state
+    button.disabled = true;
+    button.innerHTML = 'جاري الاشتراك...';
+    
+    fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content')
+        },
+        body: JSON.stringify({ email })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            showNotification('تم الاشتراك بنجاح! شكراً لك', 'success');
+            form.reset();
+        } else {
+            showNotification(data.message || 'حدث خطأ أثناء الاشتراك', 'error');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showNotification('حدث خطأ أثناء الاشتراك', 'error');
+    })
+    .finally(() => {
+        button.disabled = false;
+        button.innerHTML = `
+            اشتراك
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        `;
+    });
+}
+
+// Initialize slider
+document.addEventListener('DOMContentLoaded', function() {
+    updateSliderButtons();
+    
+    // Auto-slide every 5 seconds
+    setInterval(() => {
+        const items = document.querySelectorAll('#new-arrivals-slider .slider-item');
+        const maxSlide = Math.max(0, items.length - slidesToShow);
+        
+        if (currentSlide >= maxSlide) {
+            currentSlide = 0;
+        } else {
+            currentSlide++;
+        }
+        
+        const slider = document.querySelector('#new-arrivals-slider .slider-track');
+        const translateX = -(currentSlide * (100 / slidesToShow));
+        slider.style.transform = `translateX(${translateX}%)`;
+        updateSliderButtons();
+    }, 5000);
+});
+
+// Responsive slider
+function updateSlidesToShow() {
+    const width = window.innerWidth;
+    if (width < 768) {
+        slidesToShow = 1;
+    } else if (width < 1024) {
+        slidesToShow = 2;
+    } else if (width < 1200) {
+        slidesToShow = 3;
+    } else {
+        slidesToShow = 4;
+    }
+    
+    updateSliderButtons();
+}
+
+window.addEventListener('resize', updateSlidesToShow);
+updateSlidesToShow();
+</script>
+
+<!-- AOS Animation Library -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+    });
+</script>
+{% endblock %}
+

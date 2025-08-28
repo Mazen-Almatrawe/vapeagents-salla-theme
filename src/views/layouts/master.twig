@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ store.name }}{% endblock %}</title>
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="{{ 'fonts/arabic-font.woff2' | asset }}" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arabic Font', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        /* Header styles */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .top-bar {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-main {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                min-height: 400px;
+            }
+        }
+    </style>
+    
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="{{ 'css/main.css' | asset }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ 'css/main.css' | asset }}"></noscript>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="{% block description %}{{ store.description }}{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}فيب, شيشة إلكترونية, نكهات{% endblock %}">
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="{% block og_title %}{{ store.name }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ store.description }}{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ store.logo | asset }}{% endblock %}">
+    <meta property="og:url" content="{{ app.request.uri }}">
+    <meta property="og:type" content="website">
+    
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "{{ store.name }}",
+        "description": "{{ store.description }}",
+        "url": "{{ store.url }}",
+        "logo": "{{ store.logo | asset }}",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "SA"
+        }
+    }
+    </script>
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!-- Top notification bar -->
+    {% include 'partials/top-bar.twig' %}
+    
+    <!-- Header -->
+    {% include 'partials/header.twig' %}
+    
+    <!-- Main content -->
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    {% include 'partials/footer.twig' %}
+    
+    <!-- JavaScript -->
+    <script>
+        // Critical JavaScript for performance
+        // Lazy loading images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Font loading optimization
+        if ('fonts' in document) {
+            document.fonts.ready.then(() => {
+                document.body.classList.add('fonts-loaded');
+            });
+        }
+    </script>
+    
+    <!-- Non-critical JavaScript -->
+    <script src="{{ 'js/main.js' | asset }}" defer></script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>
+
