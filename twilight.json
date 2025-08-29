@@ -1,31 +1,73 @@
 {
-  "name": "Vapeagents Salla Theme",
-  "version": "1.0.0",
-  "author": {
-    "name": "Manus AI",
-    "email": "manus@example.com"
-  },
-  "description": "A custom Salla theme for Vapeagents.com, matching Vaperelax.com design and optimized for Core Web Vitals.",
-  "settings": {
-    "colors": {
-      "primary": "#FF6B6B",
-      "secondary": "#4ECDC4"
+    "version": "1.0.0",
+    "theme_name": "Vapeagents Salla Theme",
+    "repo_url": "https://github.com/Ahmed70001/vapeagents-salla-theme",
+    "support_url": "https://salla.dev",
+    "author": {
+        "name": "Manus AI",
+        "email": "manus@example.com"
     },
-    "typography": {
-      "font_family": "'Cairo', sans-serif"
-    }
-  },
-  "features": {
-    "pwa": true,
-    "seo_optimized": true,
-    "performance_optimized": true
-  },
-  "components": [
-    "header",
-    "footer",
-    "hero-section",
-    "product-card",
-    "top-bar"
-  ]
+    "description": "A custom Salla theme for Vapeagents.com, matching Vaperelax.com design and optimized for Core Web Vitals.",
+    "settings": [
+        {
+            "type": "color",
+            "label": "Primary Color",
+            "id": "primary_color",
+            "value": "#FF6B6B"
+        },
+        {
+            "type": "color",
+            "label": "Secondary Color",
+            "id": "secondary_color",
+            "value": "#4ECDC4"
+        },
+        {
+            "type": "font",
+            "label": "Font Family",
+            "id": "font_family",
+            "value": "Cairo"
+        }
+    ],
+    "features": [
+        "component-featured-products",
+        "component-fixed-banner",
+        "component-fixed-products",
+        "component-photos-slider",
+        "component-products-slider",
+        "component-parallax-background",
+        "component-random-testimonials",
+        "component-testimonials",
+        "component-square-photos",
+        "component-store-features",
+        "component-youtube",
+        "filters"
+    ],
+    "components": [
+        {
+            "name": "header",
+            "title": "Header",
+            "path": "partials.header"
+        },
+        {
+            "name": "footer",
+            "title": "Footer",
+            "path": "partials.footer"
+        },
+        {
+            "name": "hero-section",
+            "title": "Hero Section",
+            "path": "partials.hero-section"
+        },
+        {
+            "name": "product-card",
+            "title": "Product Card",
+            "path": "partials.product-card"
+        },
+        {
+            "name": "top-bar",
+            "title": "Top Bar",
+            "path": "partials.top-bar"
+        }
+    ]
 }
 
