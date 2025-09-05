@@ -1,13 +1,17 @@
 {
     "version": "1.0.0",
-    "theme_name": "Vapeagents Salla Theme",
-    "repo_url": "https://github.com/Ahmed70001/vapeagents-salla-theme",
-    "support_url": "https://salla.dev",
+    "name": "Vapeagents Salla Theme",
+    "description": "A custom Salla theme for Vapeagents.com, matching Vaperelax.com design and optimized for Core Web Vitals.",
     "author": {
         "name": "Manus AI",
         "email": "manus@example.com"
     },
-    "description": "A custom Salla theme for Vapeagents.com, matching Vaperelax.com design and optimized for Core Web Vitals.",
+    "support": {
+        "url": "https://salla.dev"
+    },
+    "license": "MIT",
+    "icon": "assets/images/theme-icon.png",
+    "preview_url": "https://vapeagents-demo.salla.store",
     "settings": [
         {
             "type": "color",
@@ -70,4 +74,3 @@
         }
     ]
 }
-
