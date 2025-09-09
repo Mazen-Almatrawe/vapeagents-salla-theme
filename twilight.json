@@ -1,12 +1,7 @@
 {
-  "name": "Vapeagents Salla Theme",
   "version": "1.0.0",
-  "description": "A custom Salla theme for Vapeagents.com",
-  "author": {
-    "name": "Manus AI",
-    "email": "manus@example.com"
-  },
-  "support": {
-    "url": "https://salla.dev"
-  }
+  "theme_name": "Theme One",
+  "repo_url": "https://github.com/SallaApp/theme-raed",
+  "support_url": "https://salla.dev"
+  ...
 }
